@@ -25,8 +25,44 @@ def aktau_parser():
     r = requests.get('https://weather.rambler.ru/v-aktobe/3-days/')
     html = BeautifulSoup(r.content, 'html.parser')
 
-    for temperature in html.find_all('LNX8'):
-        print(temperature)
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        day = tomorrow.select('span._3k_D')
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select('span._1DZh')
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select('span._1DZh')
+
+        print(day)
+        print(wind_result)
+        print(preciptation_result)
+
+    # for wind in html.select('div._1Y0B.wind'):
+    #     test = wind.select('span._1DZh')
+    #     print(test)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def another_parser():
