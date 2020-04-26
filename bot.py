@@ -12,7 +12,7 @@ bot = telebot.TeleBot("943137137:AAHUONQt5vh4ACwnsAgIur0IdtKAznbl_II")
 def start_message(message):
     bot.send_message(message.chat.id, f'''
 Привет, {message.chat.username}👋.
-Мое имя WeatherBot, я могу отправлять тебе результаты погоды из городов Казахстана)
+Мое имя WeatherBot, я могу отправлять тебе результаты погоды из городов Казахстана🇰🇿
 Отправь мне название любого города и мигом отвечу тебе!
     ''', parse_mode='Markdown')
 
@@ -236,7 +236,7 @@ def start_message(message):
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id, f'''
-Введите любой из предложенных городов Казахстана, к примеру:
+Введите любой из предложенных городов Казахстана🇰🇿, к примеру:
 /nursultan - выведит всю информацию о погоде города Нур-Султан
 Информация о погоде берется с https://openweathermap.org/
 ''')
@@ -246,7 +246,7 @@ def weather_about(city):
     observation = owm.weather_at_place(city)
     output = observation.get_weather()
     information = (f'''
-Информацию о погоде в городе {city}
+Информацию о погоде на сегодня в городе {city}:
 Температура на сегодня: {output.get_temperature('celsius')['temp_max']}° по цельсий
 Влажность воздуха: {output.get_humidity()}%
 Скорость ветра: {output.get_wind()['speed']} м/с
@@ -259,37 +259,67 @@ def weather_about(city):
 def city(message):
     if message.text.lower() == 'актау':
         bot.send_message(message.chat.id, weather_about('Актау'))
+        bot.send_message(message.chat.id, parser.aktau_tomorrow_parser())
+
     elif message.text.lower() == 'актобе':
         bot.send_message(message.chat.id, weather_about('Актобе'))
+        bot.send_message(message.chat.id, parser.aktobe_tomorrow_parser())
+
     elif message.text.lower() == 'алматы' or message.text.lower() == 'алмата':
         bot.send_message(message.chat.id, weather_about('Алматы'))
+        bot.send_message(message.chat.id, parser.almaty_tomorrow_parser())
+
     elif message.text.lower() == 'атырау':
         bot.send_message(message.chat.id, weather_about('Атырау'))
+        bot.send_message(message.chat.id, parser.atyrau_tomorrow_parser())
+
     elif message.text.lower() == 'жезказган':
         bot.send_message(message.chat.id, weather_about('Жезказган'))
+        bot.send_message(message.chat.id, parser.zhezkazgan_tomorrow_parser())
+
     elif message.text.lower() == 'караганда':
         bot.send_message(message.chat.id, weather_about('Караганда'))
+        bot.send_message(message.chat.id, parser.karaganda_tomorrow_parser())
+
     elif message.text.lower() == 'кызылорда':
         bot.send_message(message.chat.id, weather_about('Кызылорда'))
+        bot.send_message(message.chat.id, parser.kyzylorda_tomorrow_parser())
+
     elif message.text.lower() == 'кокшетау':
         bot.send_message(message.chat.id, weather_about('Кокшетау'))
+        bot.send_message(message.chat.id, parser.kokshetau_tomorrow_parser())
+
     elif message.text.lower() == 'костанай':
         bot.send_message(message.chat.id, weather_about('Костанай'))
+        bot.send_message(message.chat.id, parser.kostanai_tomorrow_parser())
+
     elif message.text.lower() == 'нур-султан' or message.text.lower() == 'астана':
         bot.send_message(message.chat.id, weather_about('Нур-Султан'))
-        bot.send_message(message.chat.id, parser.nursultan_parser())
+        bot.send_message(message.chat.id, parser.nursultan_tomorrow_parser())
+
     elif message.text.lower() == 'павлодар':
         bot.send_message(message.chat.id, weather_about('Павлодар'))
-    elif message.text.lower() == 'петропавловск':
+        bot.send_message(message.chat.id, parser.pavlodar_tomorrow_parser())
+
+    elif message.text.lower() == 'петропавловск' or message.text.lower() == 'петропавл':
         bot.send_message(message.chat.id, weather_about('Петропавловск'))
-    elif message.text.lower() == 'семей':
+        bot.send_message(message.chat.id, parser.petropavlovsk_tomorrow_parser())
+
+    elif message.text.lower() == 'семей' or message.text.lower() == 'семипалатинск':
         bot.send_message(message.chat.id, weather_about('Семей'))
-    elif message.text.lower() == 'степнагорск':
-        bot.send_message(message.chat.id, weather_about('Степнагорск'))
+        bot.send_message(message.chat.id, parser.semipalatinsk_tomorrow_parser())
+
+    elif message.text.lower() == 'степногорск':
+        bot.send_message(message.chat.id, weather_about('Степногорск'))
+        bot.send_message(message.chat.id, parser.stepnogorsk_tomorrow_parser())
+
     elif message.text.lower() == 'талдыкорган':
         bot.send_message(message.chat.id, weather_about('Талдыкорган'))
+        bot.send_message(message.chat.id, parser.taldykorgan_tomorrow_parser())
     elif message.text.lower() == 'темиртау':
         bot.send_message(message.chat.id, weather_about('Темиртау'))
+        bot.send_message(message.chat.id, parser.temirtau_tomorrow_parser())
+
     elif message.text.lower() == 'усть-каменогорск' or message.text.lower() == 'оскемен':
         bot.send_message(message.chat.id, weather_about('Усть-Каменогорск'))
     elif message.text.lower() == 'шымкент':

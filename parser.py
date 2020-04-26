@@ -2,95 +2,329 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# def aktau_parser():
-#     r = requests.get('https://weather.rambler.ru/v-aktobe/3-days/')
-#     html = BeautifulSoup(r.content, 'html.parser')
-#
-#     for temperature in html.find_all('div', attrs={'class': '_1S8F'}):
-#         for temperature_2 in temperature('span', attrs={'class': '_3k_D'}):
-#             temp = temperature_2.text
-#             print(temp)
-#
-#     for precipitation in html.find_all('div', attrs={'class': '_1Y0B precipitationProbability'}):
-#         for preccipitation_2 in precipitation.find_all('span', attrs={'class': '_1DZh'}):
-#             prec = preccipitation_2.text
-#             print(prec)
-#
-#     for wind_1 in html.find_all('div', attrs={'class': '_1Y0B wind'}):
-#         for wind_2 in wind_1.find_all('span', attrs={'class': '_1DZh'}):
-#             wind = wind_2.text
-#             print(wind)
+def aktau_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-aktau-mangistauskoy-oblasti/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
 
-def aktau_parser():
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def aktobe_tomorrow_parser():
     r = requests.get('https://weather.rambler.ru/v-aktobe/3-days/')
     html = BeautifulSoup(r.content, 'html.parser')
 
     for tomorrow in html.select('div._18iJ:nth-child(2)'):
-        day = tomorrow.select('span._3k_D')
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
         for wind in tomorrow.select('div._1Y0B.wind'):
-            wind_result = wind.select('span._1DZh')
+            wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
-            preciptation_result = precipitation.select('span._1DZh')
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
 
-        print(day)
-        print(wind_result)
-        print(preciptation_result)
+
+def almaty_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-almaty/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
 
 
-def nursultan_parser():
+def atyrau_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-atyrau/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def zhezkazgan_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-zhezkazgane-dzhezkazgane/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def karaganda_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-karagande/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def kyzylorda_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-kyzylorde/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def kokshetau_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-kokshetau/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def kostanai_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-kostanae/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def nursultan_tomorrow_parser():
     r = requests.get('https://weather.rambler.ru/v-nur-sultane/3-days/')
     html = BeautifulSoup(r.content, 'html.parser')
 
     for tomorrow in html.select('div._18iJ:nth-child(2)'):
-        day = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
         for wind in tomorrow.select('div._1Y0B.wind'):
-            wind_result = wind.select_one('span._1DZh').text
+            wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
-            preciptation_result = precipitation.select_one('span._1DZh').text
-
-        a = f'''
-Температура: {day}
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
 Скорость ветра: {wind_result}
-Влажность воздуха: {preciptation_result}
+Осадки: {preciptation_result}
 '''
-        return a
+        return result
 
 
-a = nursultan_parser()
-print(a)
+def nursultan_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-nur-sultane/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def pavlodar_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-pavlodare/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def petropavlovsk_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-petropavlovske/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def semipalatinsk_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-semipalatinske/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def stepnogorsk_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-stepnogorske/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def taldykorgan_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-taldykorgane/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
+
+
+def temirtau_tomorrow_parser():
+    r = requests.get('https://weather.rambler.ru/v-temirtau/kazakhstan/3-days/')
+    html = BeautifulSoup(r.content, 'html.parser')
+
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        temp = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text.lower()
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text.lower()
+        result = f'''
+Прогнозы на завтра:
+Температура: {temp}
+Скорость ветра: {wind_result}
+Осадки: {preciptation_result}
+'''
+        return result
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
-# def another_parser():
-#     r = requests.get('https://www.meteonova.ru/week/35229-Aktobe.htm')
-#     html = BeautifulSoup(r.content, 'html.parser')
-#     for elements in html.find_all('td', attrs={'class': 'fon_2_0 weather_td'}):
-#         for element in elements('td', attrs={'class': 'temper'}):
-#             print(element.text)
-#
-#     for test1 in html.find_all('tr'):
-#         for test2 in test1.select_one(':nth-child(5)'):
-#             print(test2)
 
