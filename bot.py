@@ -1,6 +1,7 @@
 import telebot
 import pyowm
 
+import parser
 
 owm = pyowm.OWM('04b131cf413fc3c95dc41cb0d44326d0', language='ru')
 bot = telebot.TeleBot("943137137:AAHUONQt5vh4ACwnsAgIur0IdtKAznbl_II")
@@ -246,7 +247,7 @@ def weather_about(city):
     output = observation.get_weather()
     information = (f'''
 Информацию о погоде в городе {city}
-Температура на сегодня: {output.get_temperature('celsius')['temp_max']} градусов по цельсий
+Температура на сегодня: {output.get_temperature('celsius')['temp_max']}° по цельсий
 Влажность воздуха: {output.get_humidity()}%
 Скорость ветра: {output.get_wind()['speed']} м/с
 Состояние погоды в общем: {output.get_detailed_status()}
@@ -276,6 +277,7 @@ def city(message):
         bot.send_message(message.chat.id, weather_about('Костанай'))
     elif message.text.lower() == 'нур-султан' or message.text.lower() == 'астана':
         bot.send_message(message.chat.id, weather_about('Нур-Султан'))
+        bot.send_message(message.chat.id, parser.nursultan_parser())
     elif message.text.lower() == 'павлодар':
         bot.send_message(message.chat.id, weather_about('Павлодар'))
     elif message.text.lower() == 'петропавловск':

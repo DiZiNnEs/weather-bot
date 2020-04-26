@@ -36,45 +36,61 @@ def aktau_parser():
         print(wind_result)
         print(preciptation_result)
 
-    # for wind in html.select('div._1Y0B.wind'):
-    #     test = wind.select('span._1DZh')
-    #     print(test)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def another_parser():
-    r = requests.get('https://www.meteonova.ru/week/35229-Aktobe.htm')
+def nursultan_parser():
+    r = requests.get('https://weather.rambler.ru/v-nur-sultane/3-days/')
     html = BeautifulSoup(r.content, 'html.parser')
-    for elements in html.find_all('td', attrs={'class': 'fon_2_0 weather_td'}):
-        for element in elements('td', attrs={'class': 'temper'}):
-            print(element.text)
 
-    for test1 in html.find_all('tr'):
-        for test2 in test1.select_one(':nth-child(5)'):
-            print(test2)
+    for tomorrow in html.select('div._18iJ:nth-child(2)'):
+        day = tomorrow.select_one('span._3k_D:nth-child(2)').text
+        for wind in tomorrow.select('div._1Y0B.wind'):
+            wind_result = wind.select_one('span._1DZh').text
+        for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
+            preciptation_result = precipitation.select_one('span._1DZh').text
+
+        a = f'''
+Температура: {day}
+Скорость ветра: {wind_result}
+Влажность воздуха: {preciptation_result}
+'''
+        return a
 
 
-aktau_parser()
+a = nursultan_parser()
+print(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# def another_parser():
+#     r = requests.get('https://www.meteonova.ru/week/35229-Aktobe.htm')
+#     html = BeautifulSoup(r.content, 'html.parser')
+#     for elements in html.find_all('td', attrs={'class': 'fon_2_0 weather_td'}):
+#         for element in elements('td', attrs={'class': 'temper'}):
+#             print(element.text)
+#
+#     for test1 in html.find_all('tr'):
+#         for test2 in test1.select_one(':nth-child(5)'):
+#             print(test2)
+
