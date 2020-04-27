@@ -14,7 +14,7 @@ def aktau_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -36,7 +36,7 @@ def aktobe_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -58,7 +58,7 @@ def almaty_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -80,7 +80,7 @@ def atyrau_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -102,7 +102,7 @@ def zhezkazgan_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -124,7 +124,7 @@ def karaganda_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -146,7 +146,7 @@ def kyzylorda_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -168,7 +168,7 @@ def kokshetau_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -190,7 +190,7 @@ def kostanai_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -212,7 +212,7 @@ def nursultan_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -234,7 +234,7 @@ def nursultan_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -256,7 +256,7 @@ def pavlodar_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -278,7 +278,7 @@ def petropavlovsk_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -300,7 +300,7 @@ def semipalatinsk_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -322,7 +322,7 @@ def stepnogorsk_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -344,7 +344,7 @@ def taldykorgan_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -366,7 +366,7 @@ def temirtau_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -388,7 +388,7 @@ def oskemen_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}
@@ -410,7 +410,7 @@ def shymkent_tomorrow_parser():
             wind_result = wind.select_one('span._1DZh').text.lower()
         for precipitation in tomorrow.select('div._1Y0B.precipitationProbability'):
             preciptation_result = precipitation.select_one('span._1DZh').text.lower()
-        result = f'''
+        result = f'''\
 Прогноз погоды на завтра:
 Температура ночью: {night_temperature}
 Температура днём: {day_temperature}

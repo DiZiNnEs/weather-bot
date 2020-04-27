@@ -55,7 +55,7 @@ def list(message):
 def weather_about(city):
     observation = owm.weather_at_place(city)
     output = observation.get_weather()
-    information = (f'''
+    information = (f'''\
 Информацию о погоде на сегодня в городе {city}:
 Температура на сегодня: {output.get_temperature('celsius')['temp_max']}° по цельсий
 Влажность воздуха: {output.get_humidity()}%
