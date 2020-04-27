@@ -1,3 +1,4 @@
+# Имя студентки Мадина
 import requests
 
 from bs4 import BeautifulSoup
